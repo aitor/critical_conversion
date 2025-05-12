@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "D&D Metric Converter",
+  "version": "1.0.0",
+  "description": "Converts imperial units to metric units on D&D websites",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.dndbeyond.com/*",
+    "*://*.roll20.net/*",
+    "file:///*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.dndbeyond.com/*",
+        "*://*.roll20.net/*",
+        "file:///*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

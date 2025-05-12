@@ -1,0 +1,30 @@
+.dnd-metric-converted {
+  background-color: rgba(144, 238, 144, 0.3);
+  border-radius: 3px;
+  padding: 0 2px;
+  position: relative;
+  cursor: help;
+}
+
+.dnd-metric-tooltip {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  width: 120px;
+}
+
+.dnd-metric-converted:hover .dnd-metric-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
