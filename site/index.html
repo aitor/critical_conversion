@@ -199,6 +199,73 @@
       mask-position: center;
       -webkit-mask-position: center;
     }
+
+    /* Firefly Animation */
+    #firefly-container {
+      pointer-events: none;
+      /* Make sure they don't interfere with clicks */
+    }
+
+    .firefly {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 150, 0.8);
+      /* Pale yellow */
+      box-shadow: 0 0 6px 2px rgba(255, 255, 150, 0.5);
+      /* Soft glow */
+      opacity: 0;
+      animation: fly;
+      /* Base animation, duration and delay set by JS. Removed 'infinite' */
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.7;
+      }
+
+      /* Fade in */
+      25% {
+        transform: translate(var(--tx1), var(--ty1)) scale(0.8);
+        opacity: 0.5;
+      }
+
+      35% {
+        opacity: 0.9;
+      }
+
+      /* Pulse brighter */
+      50% {
+        transform: translate(var(--tx2), var(--ty2)) scale(1.2);
+        opacity: 0.6;
+      }
+
+      65% {
+        opacity: 1;
+      }
+
+      /* Pulse brightest */
+      75% {
+        transform: translate(var(--tx3), var(--ty3)) scale(0.7);
+        opacity: 0.4;
+      }
+
+      90% {
+        opacity: 0.7;
+      }
+
+      /* Start fade out */
+      100% {
+        transform: translate(var(--tx4), var(--ty4)) scale(1);
+        opacity: 0;
+      }
+    }
   </style>
 
   <!-- Inter Font -->
@@ -342,10 +409,10 @@
       </div>
     </div>
 
-    <!-- Floating Elements Animation -->
-    <div class="absolute top-1/4 left-1/4 w-8 h-8 rounded-full bg-amber-400/20 animate-pulse"></div>
-    <div class="absolute bottom-1/3 left-1/3 w-4 h-4 rounded-full bg-amber-400/30 animate-pulse"></div>
-    <div class="absolute top-1/3 right-1/4 w-6 h-6 rounded-full bg-amber-400/20 animate-pulse"></div>
+    <!-- Firefly Animation Container -->
+    <div id="firefly-container" class="absolute inset-0 z-0 overflow-hidden">
+      <!-- We will add individual fireflies here via JS or more static HTML -->
+    </div>
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
@@ -585,6 +652,15 @@
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
                 </div>
                 <p class="text-white/80 italic mb-4">"As someone who grew up with the metric system, this extension is a lifesaver when browsing American websites. No more mental math!"</p>
                 <div class="flex items-center space-x-3">
@@ -613,6 +689,12 @@
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
                 </div>
                 <p class="text-white/80 italic mb-4">"I use this for cooking all the time. Converting cups to milliliters used to be such a pain, but now it's automatic! Truly magical."</p>
                 <div class="flex items-center space-x-3">
@@ -626,6 +708,9 @@
               <!-- Testimonial 3 -->
               <div class="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="300">
                 <div class="flex space-x-1 mb-4">
+                  <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
@@ -842,6 +927,58 @@
 
     // Check for elements on scroll
     window.addEventListener('scroll', fadeInOnScroll);
+
+    // Firefly Generation Script
+    const fireflyContainer = document.getElementById('firefly-container');
+
+    if (fireflyContainer) {
+      const createFirefly = () => {
+        if (!fireflyContainer) return; // Should not happen if initial check passed
+
+        const firefly = document.createElement('span');
+        firefly.classList.add('firefly');
+
+        const containerWidth = fireflyContainer.offsetWidth;
+        const containerHeight = fireflyContainer.offsetHeight;
+
+        const startX = Math.random() * containerWidth;
+        const startY = containerHeight - Math.random() * containerHeight * 0.5; // Concentrate towards bottom 40%
+        firefly.style.left = `${startX}px`;
+        firefly.style.top = `${startY}px`;
+
+        firefly.style.setProperty('--tx1', `${(Math.random() - 0.5) * 100}px`);
+        firefly.style.setProperty('--ty1', `${(Math.random() * 100 - 30)}px`);
+        firefly.style.setProperty('--tx2', `${(Math.random() - 0.5) * 150}px`);
+        firefly.style.setProperty('--ty2', `${(Math.random() * 120 - 40)}px`);
+        firefly.style.setProperty('--tx3', `${(Math.random() - 0.5) * 120}px`);
+        firefly.style.setProperty('--ty3', `${(Math.random() * 100 - 30)}px`);
+        firefly.style.setProperty('--tx4', `${(Math.random() - 0.5) * 100}px`);
+        firefly.style.setProperty('--ty4', `${(Math.random() * 80 - 20)}px`);
+
+        const duration = 10 + Math.random() * 15; // Duration between 10s and 25s
+        firefly.style.animationDuration = `${duration}s`;
+        firefly.style.animationDelay = `${Math.random() * 2}s`; // Shorter initial random delay for new fireflies
+
+        firefly.addEventListener('animationend', () => {
+          firefly.remove(); // Remove the firefly when its animation finishes
+          createFirefly(); // Create a new one to replace it
+        });
+
+        fireflyContainer.appendChild(firefly);
+      };
+
+      // Initial population
+      const initialContainerWidth = fireflyContainer.offsetWidth;
+      const fireflyDensity = 1 / 200;
+      let initialNumFireflies = Math.floor(initialContainerWidth * fireflyDensity);
+      initialNumFireflies = Math.max(3, Math.min(initialNumFireflies, 40));
+
+      console.log(`Container width: ${initialContainerWidth}px, Initial number of fireflies: ${initialNumFireflies}`);
+
+      for (let i = 0; i < initialNumFireflies; i++) {
+        createFirefly();
+      }
+    }
   </script>
 </body>
 
