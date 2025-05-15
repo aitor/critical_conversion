@@ -63,21 +63,3 @@ const UnitRegexPatterns = {
   // Temperature
   fahrenheit: /(\d+(?:\.\d+)?)\s*(°F|degrees Fahrenheit|Fahrenheit)(?!\w)/gi
 };
-
-/**
- * Conversion pairs for matching regex and corresponding conversion function
- */
-const ConversionPairs = [
-  { regex: UnitRegexPatterns.feet, convert: ConversionUtils.feetToMeters, unit: 'meters' },
-  { regex: UnitRegexPatterns.miles, convert: ConversionUtils.milesToKilometers, unit: 'km' },
-  { regex: UnitRegexPatterns.inches, convert: ConversionUtils.inchesToCentimeters, unit: 'cm' },
-  { regex: UnitRegexPatterns.pounds, convert: ConversionUtils.poundsToKilograms, unit: 'kg' },
-  { regex: UnitRegexPatterns.gallons, convert: ConversionUtils.gallonsToLiters, unit: 'liters' },
-  { regex: UnitRegexPatterns.quarts, convert: ConversionUtils.quartToLiters, unit: 'liters' },
-  { regex: UnitRegexPatterns.fahrenheit, convert: ConversionUtils.fahrenheitToCelsius, unit: '°C' }
-];
-
-// Export for use in content script
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ConversionUtils, UnitRegexPatterns, ConversionPairs };
-}

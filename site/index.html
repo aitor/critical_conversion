@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Critical Conversion - Transform Imperial to Metric</title>
   <meta name="description" content="Critical Conversion automatically converts imperial measurements to metric units on any website. Browse the web with measurements that make sense to you.">
-  
+
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Configure Tailwind -->
   <script>
     tailwind.config = {
@@ -25,13 +26,20 @@
       }
     }
   </script>
-  
+
   <!-- Custom CSS -->
   <style>
     /* Floating animation */
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     .animate-float {
@@ -51,8 +59,15 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .5; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .5;
+      }
     }
 
     .fade-in {
@@ -71,8 +86,15 @@
     }
 
     @keyframes scrollIndicator {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
     }
 
     .scroll-dot {
@@ -80,13 +102,16 @@
     }
 
     @keyframes scrollDot {
-      0%, 100% { 
+
+      0%,
+      100% {
         opacity: 0.2;
-        transform: translateY(0); 
+        transform: translateY(0);
       }
-      50% { 
+
+      50% {
         opacity: 1;
-        transform: translateY(6px); 
+        transform: translateY(6px);
       }
     }
 
@@ -121,13 +146,67 @@
     .glow-effect:hover::after {
       opacity: 1;
     }
+
+    /* Mask for feature block (radial gradient) - Used for first section */
+    .masked-feature-block {
+      mask-image: radial-gradient(ellipse 90% 70% at 30% 50%, black 50%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 30% 50%, black 50%, transparent 85%);
+    }
+
+    /* Custom mask for images on the left of text (e.g., "How It Works") */
+    .image-mask-left {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask-image: url('images/masks/how_it_works.png');
+      -webkit-mask-image: url('images/masks/how_it_works.png');
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-position: center;
+    }
+
+    /* Custom mask for images on the right of text (for Testimonials) */
+    .image-mask-right {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask-image: url('images/masks/testimonials.png');
+      -webkit-mask-image: url('images/masks/testimonials.png');
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-position: center;
+    }
+
+    /* Custom mask for the first Features section background */
+    .image-mask-features-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Make image fill its container */
+      mask-image: url('images/masks/features.png');
+      -webkit-mask-image: url('images/masks/features.png');
+      mask-size: cover;
+      /* Cover the area, may crop mask if aspect ratios differ */
+      -webkit-mask-size: cover;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-position: center;
+    }
   </style>
-  
+
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="bg-black text-white font-['Inter']">
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md transform transition-transform duration-300 translate-x-full">
@@ -135,18 +214,18 @@
       <div class="flex justify-between items-center py-6">
         <div class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-400">
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-            <path d="M5 3v4"/>
-            <path d="M19 17v4"/>
-            <path d="M3 5h4"/>
-            <path d="M17 19h4"/>
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            <path d="M5 3v4" />
+            <path d="M19 17v4" />
+            <path d="M3 5h4" />
+            <path d="M17 19h4" />
           </svg>
           <span class="text-xl font-bold">Critical Conversion</span>
         </div>
         <button id="close-mobile-menu" class="p-2 rounded-full hover:bg-white/10">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-            <path d="M18 6 6 18"/>
-            <path d="m6 6 12 12"/>
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
           </svg>
         </button>
       </div>
@@ -156,9 +235,9 @@
         <a href="#testimonials" class="hover:text-amber-400 transition-colors mobile-menu-link">Testimonials</a>
         <button class="mt-8 bg-amber-400 text-black hover:bg-amber-300 px-6 py-3 rounded-md font-medium flex items-center mobile-menu-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           Install Extension
         </button>
@@ -171,11 +250,11 @@
     <div class="container mx-auto px-4 flex justify-between items-center">
       <div class="flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-400">
-          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-          <path d="M5 3v4"/>
-          <path d="M19 17v4"/>
-          <path d="M3 5h4"/>
-          <path d="M17 19h4"/>
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+          <path d="M5 3v4" />
+          <path d="M19 17v4" />
+          <path d="M3 5h4" />
+          <path d="M17 19h4" />
         </svg>
         <span class="text-xl font-bold">Critical Conversion</span>
       </div>
@@ -185,18 +264,18 @@
         <a href="#testimonials" class="text-sm font-medium text-white/80 hover:text-amber-400 transition-colors">Testimonials</a>
         <button class="bg-amber-400 text-black hover:bg-amber-300 px-4 py-2 rounded-md font-medium flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           Install Extension
         </button>
       </div>
       <button id="open-mobile-menu" class="md:hidden p-2 rounded-full hover:bg-white/10">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-          <line x1="4" x2="20" y1="12" y2="12"/>
-          <line x1="4" x2="20" y1="6" y2="6"/>
-          <line x1="4" x2="20" y1="18" y2="18"/>
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
       </button>
     </div>
@@ -230,17 +309,17 @@
           <div class="flex flex-col sm:flex-row gap-4 my-12 fade-in" data-delay="200">
             <button class="bg-amber-400 text-black hover:bg-amber-300 px-8 py-3 rounded-md font-medium flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Begin Your Journey
             </button>
             <button class="border border-white/20 hover:bg-white/10 px-8 py-3 rounded-md font-medium flex items-center">
               Learn More
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5">
-                <path d="M5 12h14"/>
-                <path d="m12 5 7 7-7 7"/>
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
               </svg>
             </button>
           </div>
@@ -278,83 +357,73 @@
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="relative py-24 bg-black overflow-hidden">
+  <section id="features" class="relative pt-24 bg-black overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute -top-40 -right-40 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl opacity-30"></div>
       <div class="absolute top-1/2 -left-40 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl opacity-30"></div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
-        <!-- Feature Image -->
-        <div class="w-full lg:w-1/2 relative fade-in">
-          <div class="relative overflow-hidden rounded-xl glow-effect">
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
-            <img 
-              src="images/landscape-riders.png" 
-              alt="Fantasy adventurers on a quest" 
-              class="w-full h-[500px] object-cover feature-image"
-            />
-            <div class="absolute bottom-6 left-6 z-20">
-              <span class="inline-block px-4 py-2 rounded-full bg-amber-400/30 text-amber-400 font-medium text-sm mb-4">
-                Your Adventure Awaits
-              </span>
-              <h3 class="text-3xl font-bold text-white drop-shadow-lg">Begin Your Metric Journey</h3>
-            </div>
-          </div>
-        </div>
+      <!-- Full-width masked background image for Top Feature Block -->
+      <div class="relative mb-20 min-h-[70vh] flex items-center rounded-xl overflow-hidden">
+        <!-- Background Image with Custom Mask -->
+        <img src="images/landscape-riders.png" alt="Fantasy adventurers on a quest" class="absolute inset-0 w-full h-full object-cover -z-10 image-mask-features-bg" />
+        <!-- Gradient Overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
 
-        <div class="w-full lg:w-1/2">
+        <!-- Content (aligned to the left) -->
+        <div class="relative z-10 p-8 md:p-12 lg:p-16 max-w-2xl">
           <div class="fade-in">
             <span class="inline-block px-4 py-2 rounded-full bg-amber-400/20 text-amber-400 font-medium text-sm mb-4">
               Magical Features
             </span>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Enchanted Tools For Your Quest</h2>
-            <p class="text-xl text-white/70 mb-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Enchanted Tools For Your Quest</h2>
+            <p class="text-xl text-white/80 mb-8">
               Our extension equips you with powerful abilities to navigate the digital realm with ease, transforming
               chaotic imperial measurements into orderly metric units.
             </p>
 
-            <div class="flex flex-col gap-6">
-              <div class="flex gap-4 fade-in" data-delay="100">
-                <div class="p-2 bg-white/5 rounded-lg h-fit">
-                  <svg class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="space-y-6">
+              <div class="flex gap-4 fade-in bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-4" data-delay="100">
+                <div class="p-2 bg-white/10 rounded-lg h-fit flex-shrink-0">
+                  <svg class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold mb-2 text-white">Instant Transmutation</h3>
-                  <p class="text-white/70">Automatically converts imperial measurements to metric in real-time as you browse.</p>
+                  <h3 class="text-lg font-semibold mb-1 text-white">Instant Transmutation</h3>
+                  <p class="text-sm text-white/70">Real-time, automatic conversion as you browse.</p>
                 </div>
               </div>
-              
-              <div class="flex gap-4 fade-in" data-delay="200">
-                <div class="p-2 bg-white/5 rounded-lg h-fit">
-                  <svg class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+              <div class="flex gap-4 fade-in bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-4" data-delay="200">
+                <div class="p-2 bg-white/10 rounded-lg h-fit flex-shrink-0">
+                  <svg class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold mb-2 text-white">Universal Spell</h3>
-                  <p class="text-white/70">Works on all websites, from ancient scrolls (recipes) to merchant listings (shopping sites).</p>
+                  <h3 class="text-lg font-semibold mb-1 text-white">Universal Spell</h3>
+                  <p class="text-sm text-white/70">Works seamlessly across all websites.</p>
                 </div>
               </div>
-              
-              <div class="flex gap-4 fade-in" data-delay="300">
-                <div class="p-2 bg-white/5 rounded-lg h-fit">
-                  <svg class="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+              <div class="flex gap-4 fade-in bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-4" data-delay="300">
+                <div class="p-2 bg-white/10 rounded-lg h-fit flex-shrink-0">
+                  <svg class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold mb-2 text-white">Invisibility Cloak</h3>
-                  <p class="text-white/70">All conversions happen locally in your browser. We never collect your browsing data.</p>
+                  <h3 class="text-lg font-semibold mb-1 text-white">Invisibility Cloak</h3>
+                  <p class="text-sm text-white/70">Privacy-focused: all conversions happen locally, no data collected.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- End Full-width masked background image for Top Feature Block -->
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="relative group fade-in" data-delay="100">
@@ -414,14 +483,19 @@
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col-reverse lg:flex-row items-center gap-16 mb-20">
-        <div class="w-full lg:w-1/2">
+      <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 mb-20 min-h-[70vh]">
+        <!-- Left Side: Masked Image -->
+        <div class="w-full lg:w-1/2 relative order-1 lg:order-none flex justify-center lg:justify-start h-[500px] md:h-[600px] lg:h-auto lg:max-h-[70vh]">
+          <img src="images/night-village.png" alt="Night village scene" class="image-mask-left" />
+        </div>
+        <!-- Right Side: Text Content -->
+        <div class="w-full lg:w-1/2 relative order-2 lg:order-none">
           <div class="fade-in">
             <span class="inline-block px-4 py-2 rounded-full bg-amber-400/20 text-amber-400 font-medium text-sm mb-4">
               The Path Forward
             </span>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Begin Your Metric Adventure</h2>
-            <p class="text-xl text-white/70 mb-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Begin Your Metric Adventure</h2>
+            <p class="text-xl text-white/80 mb-10">
               Three simple steps to transform your browsing experience forever.
             </p>
 
@@ -435,7 +509,7 @@
                   <p class="text-white/70 max-w-md">Add Critical Conversion to Chrome with just one click. No account or sign-up required.</p>
                 </div>
               </div>
-              
+
               <div class="flex gap-6 items-start fade-in" data-delay="200">
                 <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-2xl font-bold text-black shadow-lg shadow-amber-500/20">
                   2
@@ -445,7 +519,7 @@
                   <p class="text-white/70 max-w-md">Browse the web as you normally would. The extension works automatically in the background.</p>
                 </div>
               </div>
-              
+
               <div class="flex gap-6 items-start fade-in" data-delay="300">
                 <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 text-2xl font-bold text-black shadow-lg shadow-amber-500/20">
                   3
@@ -460,28 +534,13 @@
             <div class="mt-12">
               <button class="bg-amber-400 text-black hover:bg-amber-300 px-8 py-3 rounded-md text-lg font-medium flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="7 10 12 15 17 10"/>
-                  <line x1="12" y1="15" x2="12" y2="3"/>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
                 Begin Your Journey
               </button>
             </div>
-          </div>
-        </div>
-
-        <div class="w-full lg:w-1/2 relative overflow-hidden rounded-xl fade-in glow-effect">
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
-          <img 
-            src="images/night-village.png" 
-            alt="Night village scene" 
-            class="object-cover h-[600px] w-full feature-image"
-          />
-          <div class="absolute bottom-6 left-6 z-20">
-            <span class="inline-block px-4 py-2 rounded-full bg-amber-400/30 text-amber-400 font-medium text-sm mb-4">
-              Into The Night
-            </span>
-            <h3 class="text-3xl font-bold text-white drop-shadow-lg">Transform Your Experience</h3>
           </div>
         </div>
       </div>
@@ -495,34 +554,21 @@
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
-        <div class="w-full lg:w-1/2 relative overflow-hidden rounded-xl fade-in glow-effect">
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
-          <img 
-            src="images/characters-doorway.png" 
-            alt="Fantasy characters at doorway" 
-            class="object-cover h-[500px] w-full feature-image"
-          />
-          <div class="absolute bottom-6 left-6 z-20">
-            <span class="inline-block px-4 py-2 rounded-full bg-amber-400/30 text-amber-400 font-medium text-sm mb-4">
-              Join The Guild
-            </span>
-            <h3 class="text-3xl font-bold text-white drop-shadow-lg">Others Have Joined The Quest</h3>
-          </div>
-        </div>
-
-        <div class="w-full lg:w-1/2">
-          <div class="fade-in">
+      <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-0 mb-20 min-h-[70vh]">
+        <!-- Left Side: Text Content -->
+        <div class="w-full lg:w-5/12 relative order-1 lg:order-none z-10">
+          <div class="fade-in p-6 lg:p-0">
             <span class="inline-block px-4 py-2 rounded-full bg-amber-400/20 text-amber-400 font-medium text-sm mb-4">
               Tales From The Realm
             </span>
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Fellow Adventurers Speak</h2>
-            <p class="text-xl text-white/70 mb-8">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Fellow Adventurers Speak</h2>
+            <p class="text-xl text-white/80 mb-8">
               Join thousands of satisfied users who've made the switch to metric and never looked back.
             </p>
 
             <div class="space-y-6">
-              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="100">
+              <!-- Testimonial 1 -->
+              <div class="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="100">
                 <div class="flex space-x-1 mb-4">
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -549,8 +595,8 @@
                   </div>
                 </div>
               </div>
-              
-              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="200">
+              <!-- Testimonial 2 -->
+              <div class="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="200">
                 <div class="flex space-x-1 mb-4">
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -577,8 +623,8 @@
                   </div>
                 </div>
               </div>
-              
-              <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="300">
+              <!-- Testimonial 3 -->
+              <div class="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-amber-400/30 transition-colors duration-300 fade-in" data-delay="300">
                 <div class="flex space-x-1 mb-4">
                   <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -608,6 +654,10 @@
             </div>
           </div>
         </div>
+        <!-- Right Side: Masked Image -->
+        <div class="w-full lg:w-7/12 relative order-2 lg:order-2 flex justify-end items-center h-[500px] md:h-[600px] lg:h-[60vh]">
+          <img src="images/characters-doorway.png" alt="Fantasy characters at doorway" class="image-mask-right h-full w-auto lg:w-[140%] lg:max-w-none lg:-ml-16" />
+        </div>
       </div>
     </div>
   </section>
@@ -630,16 +680,16 @@
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <button class="bg-amber-400 text-black hover:bg-amber-300 px-8 py-3 rounded-md text-lg font-medium flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
             Install Now
           </button>
           <button class="border border-amber-400/30 text-amber-400 hover:bg-amber-400/10 px-8 py-3 rounded-md text-lg font-medium flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5">
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-              <path d="M9 18c-4.51 2-5-2-7-2"/>
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
             View on GitHub
           </button>
@@ -655,11 +705,11 @@
         <div>
           <div class="flex items-center gap-2 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-400">
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-              <path d="M5 3v4"/>
-              <path d="M19 17v4"/>
-              <path d="M3 5h4"/>
-              <path d="M17 19h4"/>
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+              <path d="M5 3v4" />
+              <path d="M19 17v4" />
+              <path d="M3 5h4" />
+              <path d="M17 19h4" />
             </svg>
             <span class="text-xl font-bold">Critical Conversion</span>
           </div>
@@ -735,30 +785,30 @@
   <script>
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
-    
+
     // Mobile menu functionality
     const mobileMenu = document.getElementById('mobile-menu');
     const openMobileMenuBtn = document.getElementById('open-mobile-menu');
     const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-    
+
     openMobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.remove('translate-x-full');
     });
-    
+
     closeMobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.add('translate-x-full');
     });
-    
+
     mobileMenuLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('translate-x-full');
       });
     });
-    
+
     // Header scroll effect
     const header = document.getElementById('header');
-    
+
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.classList.add('bg-black/80', 'backdrop-blur-md', 'py-3');
@@ -768,16 +818,16 @@
         header.classList.add('bg-transparent', 'py-6');
       }
     });
-    
+
     // Fade-in animation on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
-    
+
     const fadeInOnScroll = () => {
       fadeElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const elementBottom = element.getBoundingClientRect().bottom;
         const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
-        
+
         if (isVisible) {
           const delay = element.getAttribute('data-delay') || 0;
           setTimeout(() => {
@@ -786,12 +836,13 @@
         }
       });
     };
-    
+
     // Initial check for elements in view
     fadeInOnScroll();
-    
+
     // Check for elements on scroll
     window.addEventListener('scroll', fadeInOnScroll);
   </script>
 </body>
+
 </html>
