@@ -1,9 +1,14 @@
 .dnd-metric-converted {
-  background-color: rgba(144, 238, 144, 0.3);
-  border-radius: 3px;
-  padding: 0 2px;
-  position: relative;
+  padding: 2px 6px; /* Adjust to match your desired padding */
+  border-radius: 4px; /* For slightly rounded corners */
+  color: #202124;    /* Dark text for good readability */
+  display: inline-block; /* Ensures background and padding apply correctly */
+  position: relative; /* Needed for ::before positioning */
   cursor: help;
+
+  /* Reverted to static pale green background */
+  background-color: rgba(144, 238, 144, 0.3);
+  /* Removed background-size and animation properties */
 }
 
 .dnd-metric-tooltip {
@@ -18,7 +23,7 @@
   bottom: 125%;
   left: 50%;
   margin-left: -60px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
   font-size: 12px;
   width: 120px;
